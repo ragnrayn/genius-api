@@ -4,14 +4,10 @@ export const HomeApiSlice = createApi({
   reducerPath: "geniusBasic",
   baseQuery: fetchBaseQuery({ baseUrl: "https://api.genius.com/" }),
   endpoints: builder => ({
-    getArtist: builder.query<any, void>({
-        query: () => ({
+    getArtist: builder.query<any, string>({
+        query: (artist) => ({
             method: "GET",
-            url: "account",
-            headers: {
-                "Authorization": "Bearer uEPNys2K0dxOY3Rx52mEkarCImQSD2du6AbgRv3n73OyRB6LS0kL2UNWIBcXZj4E",
-            },
-            mode: "no-cors",
+            url: `search?q=${artist}&access_token=BIfgkqrwwlnDIWWUCSwwIpnJzj0ayZDBTojGoeMBj7nSDK4C3C4ZW1tVBCJ6AbNE`,
         })
     })
   }),

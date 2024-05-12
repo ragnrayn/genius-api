@@ -11,22 +11,14 @@
     height: 100%;
 }
 
-.header-menu ul li{
-    list-style-type: none;
+
+.header-search input{
+    padding: 10px 0 10px 5px;
+    width: 350px;
 }
 
-.header-menu ul{
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.header-menu ul li a{
-    color: black;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.header-menu ul li a:hover{
-    font-weight: bold;
+.header-search button{
+    padding: 10px 20px;
+    background: transparent;
+    margin-left: 10px;
 }

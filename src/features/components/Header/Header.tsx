@@ -1,5 +1,6 @@
 import "./Header.css";
 import geniusLogo from "../../../assets/genius-logo.svg";
+import searchIcon from "../../../assets/search-icon.svg";
 
 
 function Header(){
@@ -13,11 +14,11 @@ function Header(){
                                 <img width={'70px'} src={geniusLogo} alt="" />
                             </a>
                         </div>
-                        <div className="header-menu">
-                            <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Artists</a></li>
-                            </ul>
+                        <div className="header-search">
+                            <input type="text" placeholder="Enter artist name" />
+                            <button type="button">
+                                <img width={13} src={searchIcon} alt="" />
+                            </button>
                         </div>
                     </div>
                 </div>
