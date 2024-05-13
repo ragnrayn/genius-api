@@ -1,20 +1,16 @@
 import "./Header.css";
 import geniusLogo from "../../../assets/genius-logo.svg";
 import searchIcon from "../../../assets/search-icon.svg";
-import { useEffect, useState } from "react";
-import { useLazyGetArtistQuery } from "../../../pages/Home/HomeApiSlice";
 
+interface Props{
+    artistNameToParent: string | any
+}
 
-function Header(){
-
-    const [search, setSearch] = useState('');
-    const [artist, { isLoading, isError, data, error }] = useLazyGetArtistQuery();
-
-
-    useEffect(() => {
-       artist("Kendrik");
-       console.log(data);
-    }, []);
+function Header({ artistNameToParent }: Props){
+    
+    const artistToParent = (data: string) => {
+        artistNameToParent(data);
+    }
 
     return(
         <>
@@ -27,8 +23,8 @@ function Header(){
                             </a>
                         </div>
                         <div className="header-search">
-                            <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder="Enter artist name" />
-                            <button onClick={() => findArtistData()} type="button">
+                            <input type="text" onChange={(e) => artistToParent(e.target.value)} placeholder="Enter artist name" />
+                            <button type="button">
                                 <img width={13} src={searchIcon} alt="" />
                             </button>
                         </div>
