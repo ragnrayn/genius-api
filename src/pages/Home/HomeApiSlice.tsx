@@ -13,4 +13,4 @@ export const HomeApiSlice = createApi({
   }),
 })
 
-export const { useGetArtistQuery } = HomeApiSlice;
+export const { useLazyGetArtistQuery } = HomeApiSlice;
