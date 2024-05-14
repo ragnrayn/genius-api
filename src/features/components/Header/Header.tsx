@@ -1,15 +1,14 @@
 import "./Header.css";
 import geniusLogo from "../../../assets/genius-logo.svg";
 import searchIcon from "../../../assets/search-icon.svg";
+import { getChars } from "./HeaderSlice";
+import { useDispatch } from "react-redux";
 
-interface Props{
-    artistNameToParent: string | any
-}
+function Header(){
+    const dispatch = useDispatch();
 
-function Header({ artistNameToParent }: Props){
-    
-    const artistToParent = (data: string) => {
-        artistNameToParent(data);
+    const updateArtistTitle = (title: any) => {
+        dispatch(getChars(title));
     }
 
     return(
@@ -23,7 +22,7 @@ function Header({ artistNameToParent }: Props){
                             </a>
                         </div>
                         <div className="header-search">
-                            <input type="text" onChange={(e) => artistToParent(e.target.value)} placeholder="Enter artist name" />
+                            <input type="text" onChange={(e: any) => updateArtistTitle(e.target.value)} placeholder="Enter artist name" />
                             <button type="button">
                                 <img width={13} src={searchIcon} alt="" />
                             </button>

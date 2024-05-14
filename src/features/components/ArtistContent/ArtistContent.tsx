@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useLazyGetArtistQuery } from "../../../pages/Home/HomeApiSlice";
+import { useSelector, useStore } from "react-redux";
+import { useAppSelector } from "../../../app/hooks";
 
 /*
 TODO:
@@ -7,23 +9,13 @@ TODO:
     "header_image_url", "is_verified", "url artist", "full_title" fields
 */
 
-interface Props{
-    artist: string
-}
-
-function ArtistContent({ artist }: Props){
-
+function ArtistContent(){
     const [setArtist, {data, isLoading, isError}] = useLazyGetArtistQuery();
-
-
-    useEffect(() => {
-        setArtist(artist);
-        console.log("data", data);
-    }, [artist]);
+    const title = useSelector((state: any) => state.artist.artistTitle);
 
     return(
         <>
-            {artist}
+          Test { title }
         </>
     )
 }
