@@ -1,23 +1,48 @@
-import { useEffect } from "react";
-import { useLazyGetArtistQuery } from "../../../pages/Home/HomeApiSlice";
-import { useSelector, useStore } from "react-redux";
-import { useAppSelector } from "../../../app/hooks";
-
+import { useLazyGetArtistQuery } from "../../../pages/Home/HomeApiSlice"
+import { useSelector } from "react-redux"
+import "./ArtistContent.css"
+import { useEffect } from "react"
 /*
-TODO:
-- [] - create markup for ArtistContent card with
-    "header_image_url", "is_verified", "url artist", "full_title" fields
+    TODO:
+        fix verify icon, add some features
 */
 
-function ArtistContent(){
-    const [setArtist, {data, isLoading, isError}] = useLazyGetArtistQuery();
-    const title = useSelector((state: any) => state.artist.artistTitle);
+function ArtistContent() {
+  const [setArtist, { data, isLoading, isError }] = useLazyGetArtistQuery()
+  const title = useSelector((state: any) => state.artist.artistTitle)
 
-    return(
-        <>
-          Test { title }
-        </>
-    )
+  useEffect(() => {
+    setArtist(title)
+    console.log("Data artist", data)
+  }, [title])
+
+  return (
+    <>
+      <div className="artist-wrapper">
+        {data && data.response.hits.length > 0
+          ? data.response.hits.map((item: any) => (
+              <div className="artist-item">
+                <div className="artist-image">
+                  <img src={item.result.header_image_url} alt="" />
+                  <div className="artist-verify">
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/6928/6928921.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div className="artist-name">
+                  <a target="_blank" href={item.result.url}>
+                    {item.result.artist_names}
+                  </a>
+                </div>
+              </div>
+            ))
+          : "Enter rigth name of artist"
+        }
+      </div>
+    </>
+  )
 }
 
-export default ArtistContent;
+export default ArtistContent

@@ -23,9 +23,6 @@ function Header(){
                         </div>
                         <div className="header-search">
                             <input type="text" onChange={(e: any) => updateArtistTitle(e.target.value)} placeholder="Enter artist name" />
-                            <button type="button">
-                                <img width={13} src={searchIcon} alt="" />
-                            </button>
                         </div>
                     </div>
                 </div>

@@ -4,9 +4,7 @@ interface StateType{
     artistTitle: string
 }
 
-const initialState: StateType = {
-    artistTitle: ""
-}
+const initialState: StateType = { artistTitle: "" }
 
 export const headerSlice = createSlice({
     name: "artist",
