@@ -1,7 +1,7 @@
 import { useLazyGetArtistQuery } from "../../../pages/Home/HomeApiSlice"
 import { useSelector } from "react-redux"
-import "./ArtistContent.css"
 import { useEffect } from "react"
+import "./ArtistContent.css"
 /*
     TODO:
         fix verify icon, add some features

@@ -7,7 +7,7 @@ export const HomeApiSlice = createApi({
     getArtist: builder.query<any, string>({
         query: (artist) => ({
             method: "GET",
-            url: `search?q=${artist}&access_token=BIfgkqrwwlnDIWWUCSwwIpnJzj0ayZDBTojGoeMBj7nSDK4C3C4ZW1tVBCJ6AbNE`,
+            url: `search?q=${artist}&access_token=${import.meta.env.VITE_GENIUS_TOKEN}`,
         })
     })
   }),
